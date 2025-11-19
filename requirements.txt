@@ -1,0 +1,5 @@
+PySide6
+aiohttp
+requests
+pyqtdarktheme
+nvidia-ml-py
