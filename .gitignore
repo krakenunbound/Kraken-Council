@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+*.spec
+kouncil_settings.json
+kouncil_stats.db
+*.db-journal
+*.tmp

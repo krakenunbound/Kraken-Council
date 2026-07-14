@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Kraken Kouncil v4.2.1 - Dependency Checker
+Kraken Kouncil v4.3.0 - Dependency Checker
 Verifies all required packages including GPU monitoring support.
 """
 
@@ -29,7 +29,7 @@ def check_dependency(package_display_name, import_name=None):
 
 def main():
     print("=" * 60)
-    print("🐙 Kraken Kouncil v4.2.1 - Dependency Check")
+    print("🐙 Kraken Kouncil v4.3.0 - Dependency Check")
     print("=" * 60)
     print()
     
@@ -55,7 +55,6 @@ def main():
     print("-" * 60)
     
     optional = [
-        ("pyqtdarktheme", "pyqtdarktheme", "Dark Mode UI"),
         ("nvidia-ml-py", "pynvml", "GPU Monitoring (NVIDIA)"),
     ]
     
@@ -85,7 +84,7 @@ def main():
             print("🎉 FULL POWER: All features (GPU + Dark Mode) enabled!")
             
         print("\n🚀 Launch Command:")
-        print("   python kraken_council_v4_2_1.py")
+        print("   python kraken_council_v4_3_0.py")
         return 0
     else:
         print("❌ System Halted: Critical dependencies missing.")

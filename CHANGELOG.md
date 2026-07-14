@@ -4,6 +4,44 @@ All notable changes to the Kraken Kouncil project are documented in this file.
 
 ---
 
+## [4.3.0] - 2026-07-13
+
+This is expected to be the final release from the original creator. Kraken Kouncil is now presented as a proof of concept and a starting point for community forks and experimentation, without an expectation of ongoing maintenance or support.
+
+The project is now distributed under the MIT License to make that reuse explicit.
+
+### Correctness and safety
+
+- Added complete, atomic ballot validation with deterministic candidate aliases.
+- Added explicit tie and no-valid-ballot outcomes; arbitrary fallback winners were removed.
+- Prevented concurrent/overlapping council runs and configuration mutation during execution.
+- Added responsive cancellation for active HTTP/generation tasks and safe close-after-cancel behavior.
+- Restored personas during debate refinement.
+- Stopped saving attached file contents in SQLite history.
+- Added bounded ZIP extraction and removable attachments.
+- Added a 100,000-character attachment prompt limit with visible truncation notices.
+- Migrated settings and history to a writable per-user application-data directory.
+- Made settings writes atomic and report failures instead of showing false success.
+
+### Providers and interface
+
+- Added real Server-Sent Event streaming for LM Studio.
+- Added JSON response mode for final voting on Ollama and LM Studio.
+- Preserved duplicate model IDs across different backends.
+- Added automatic startup discovery, server URL validation, keyboard shortcuts, and remembered window geometry.
+- Added single-instance locking and clearer discovery/run button states.
+- Enabled SQLite busy timeouts and WAL journaling for safer local history access.
+- Replaced the incompatible `pyqtdarktheme` integration with a built-in Qt palette.
+- Marked Google Custom Search as legacy because it is closed to new customers and scheduled for discontinuation.
+
+### Quality
+
+- Added offline unit tests for ballot validation, ties, and failed-vote behavior.
+- Added bounded dependencies, optional GPU requirements, and `.gitignore` rules.
+- Preserved `kraken_council_v4_2_1.py` as the previous release.
+
+---
+
 ## [4.2.1] - 2024-11-18
 
 ### 🛠️ Bug Fixes (Critical)

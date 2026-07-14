@@ -1,26 +1,18 @@
-# 🎊 Kraken Kouncil v4.2.1 - COMPLETE!
+# 🎊 Kraken Kouncil v4.3.0
 
 ## 📥 Download Your Files
 
 ### Main Application
-[View kraken_council_v4_2_1.py](computer:///mnt/user-data/outputs/kraken_council_v4_2_1.py)
+Run `kraken_council_v4_3_0.py` from this project folder.
 
 ### Icon Files (Place in `/icons` folder next to script)
-[View llama.png](computer:///mnt/user-data/outputs/icons/llama.png) 🦙
-[View gemma.png](computer:///mnt/user-data/outputs/icons/gemma.png) 💚
-[View qwen.png](computer:///mnt/user-data/outputs/icons/qwen.png) 🌙
-[View deepseek.png](computer:///mnt/user-data/outputs/icons/deepseek.png) 🔮
-[View mistral.png](computer:///mnt/user-data/outputs/icons/mistral.png) 🌪️
-[View phi.png](computer:///mnt/user-data/outputs/icons/phi.png) 🔵
-[View codellama.png](computer:///mnt/user-data/outputs/icons/codellama.png) 💎
-[View vicuna.png](computer:///mnt/user-data/outputs/icons/vicuna.png) 🦙
-[View falcon.png](computer:///mnt/user-data/outputs/icons/falcon.png) 🦅
-[View yi.png](computer:///mnt/user-data/outputs/icons/yi.png) 🐉
+The included `icons/` folder contains the model-family artwork used by the app.
 
 ### Documentation
-[View PHASE_1_COMPLETE.md](computer:///mnt/user-data/outputs/PHASE_1_COMPLETE.md) - Model Icons
-[View PHASE_2_COMPLETE.md](computer:///mnt/user-data/outputs/PHASE_2_COMPLETE.md) - Web Search
-[View ICON_FEATURE_README.md](computer:///mnt/user-data/outputs/ICON_FEATURE_README.md) - Icon Details
+
+- `README.md` – installation, features, and offline verification
+- `CHANGELOG.md` – release history
+- `GPU_SETUP_QUICK.md` – optional NVIDIA telemetry setup
 
 ---
 
@@ -29,7 +21,7 @@
 ### 1. File Structure
 ```
 your-folder/
-├── kraken_council_v4_2_1.py
+├── kraken_council_v4_3_0.py
 └── icons/
     ├── llama.png
     ├── gemma.png
@@ -39,7 +31,7 @@ your-folder/
 
 ### 2. Run It!
 ```bash
-python3 kraken_council_v4_2_1.py
+python kraken_council_v4_3_0.py
 ```
 
 ### 3. Features to Try
@@ -136,7 +128,7 @@ python3 kraken_council_v4_2_1.py
 
 ## 🎊 Version Summary
 
-**v4.2.1 - Web Search + Icons Edition**
+**v4.3.0 - Stabilization Edition**
 
 **New:**
 - Model family icons with emoji fallbacks

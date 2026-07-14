@@ -1,11 +1,37 @@
 
-# 🦑 Kraken Kouncil v4.2.1 + GPU
+# 🦑 Kraken Kouncil v4.3.0
 
 Orchestrate a **council of local AI models** with multi-round debates, beautiful model icons, optional web search, and a real‑time GPU monitor — all in a Qt / PySide6 desktop app.
+
+## Project Status: Final Proof of Concept
+
+Kraken Kouncil is a **proof of concept**, not an actively maintained product. It is being published as a working demonstration and a launching point for anyone who wants to fork it, study it, reshape it, or build something new from the underlying idea.
+
+The original creator is no longer actively interested in continuing the project. Regular updates, support, compatibility work, and future releases should not be expected. Version 4.3.0 will most likely be the final version from the original creator.
+
+If the concept interests you, please pick it up and take it somewhere unexpected.
+
+The project is released under the permissive [MIT License](LICENSE), so you may use, modify, and redistribute it subject to the license terms.
 
 ---
 
 ## ✨ Highlights of This Release
+
+### 🛡️ v4.3.0 – Stabilization
+
+- Prevents overlapping council runs and configuration changes during a run.
+- Adds responsive cancellation with the **Cancel** button or **Esc**.
+- Validates complete 1–10 ballots before applying any points; malformed retries cannot double-count.
+- Reports ties and failed voting as **No Decision** instead of choosing an arbitrary model.
+- Preserves each model's persona during debate refinement.
+- Uses true LM Studio streaming instead of replaying an already-complete response.
+- Distinguishes duplicate model names found in both LM Studio and Ollama.
+- Stores settings and history in the user's application-data folder.
+- Does not store attached file contents in vote history.
+- Bounds ZIP extraction to reduce decompression-bomb risk.
+- Uses a built-in Qt dark palette, removing the incompatible theme dependency.
+- Discovers local models on startup, remembers window placement, and prevents duplicate app instances.
+- Validates server URLs and bounds extracted attachment text before it reaches a model.
 
 ### 🎯 v4.2.1 – Bug Fix & Polish Pass
 
@@ -33,7 +59,7 @@ If you have an NVIDIA GPU, Kraken Kouncil can show a compact **GPU Monitor** in 
 - 🔄 Updates roughly every 2 seconds
 - 🛡️ Graceful fallback: if no GPU or no library → “No GPU detected” instead of a crash
 
-For a 2‑step setup and quick color legend, check **GPU_SETUP_QUICK.md**.  
+For a 2‑step setup and quick color legend, check **GPU_SETUP_QUICK.md**.
 For deeper detail and examples, see **GPU_MONITORING_ADDED.md**.
 
 ---
@@ -42,14 +68,14 @@ For deeper detail and examples, see **GPU_MONITORING_ADDED.md**.
 
 ### 1️⃣ Requirements (Typical Setup)
 
-- **Python 3.12+** installed  
+- **Python 3.10–3.14** installed
 - **PySide6** and a few supporting libraries:
   ```bash
-  pip install PySide6 aiohttp requests
+  python -m pip install -r requirements.txt
   ```
-- Optional but recommended:
+- Optional NVIDIA GPU monitoring:
   ```bash
-  pip install pyqtdarktheme
+  python -m pip install -r requirements-optional.txt
   ```
 
 > 💡 Tip: Use a virtualenv if you like keeping things tidy:
@@ -64,7 +90,7 @@ For deeper detail and examples, see **GPU_MONITORING_ADDED.md**.
 From this folder:
 
 ```bash
-python3 kraken_council_v4_2_1.py
+python kraken_council_v4_3_0.py
 ```
 
 On Windows you can usually just double‑click the file, but running from a terminal is recommended so you can see logs.
@@ -74,23 +100,21 @@ On Windows you can usually just double‑click the file, but running from a term
 If you have a supported **NVIDIA GPU** and want the GPU Monitor panel:
 
 ```bash
-pip install nvidia-ml-py
-# or
-pip install nvidia-ml-py3
+python -m pip install -r requirements-optional.txt
 ```
 
 Then run:
 
 ```bash
-python3 kraken_council_v4_2_1.py
+python kraken_council_v4_3_0.py
 ```
 
 In the **left sidebar** you should see, from top to bottom:
 
-1. ✅ Model list (checkboxes)  
-2. 📊 Stats panel  
-3. 🎮 **GPU Monitor** (new)  
-4. 🏆 Leaderboard  
+1. ✅ Model list (checkboxes)
+2. 📊 Stats panel
+3. 🎮 **GPU Monitor** (new)
+4. 🏆 Leaderboard
 
 If no compatible GPU is found, the GPU panel will simply say **“No GPU detected”** and the rest of the app still works perfectly.
 
@@ -102,7 +126,7 @@ If no compatible GPU is found, the GPU panel will simply say **“No GPU detecte
 
 - Run multi‑round debates across multiple models.
 - Each round has a **critique** and **refinement** phase.
-- A status line keeps you informed:  
+- A status line keeps you informed:
   `🗣️ Debate Round 1/2 → 💭 Critiquing (2/3) → 🔧 Refining (3/3)`
 - Final answers are voted on using a rich set of criteria (relevance, clarity, completeness, accuracy, helpfulness).
 
@@ -119,6 +143,8 @@ Kraken Kouncil uses a **hybrid layout** so the UI stays readable even with lots 
   - Streaming response output
 
 ### 🌐 Web Search (Optional)
+
+> **Legacy feature:** Google's Custom Search JSON API is closed to new customers and is scheduled to stop serving existing customers on January 1, 2027. It remains available in v4.3.0 only for users who already have working credentials.
 
 Kraken Kouncil can call **Google Programmable Search Engine (PSE)** before the models respond:
 
@@ -148,12 +174,12 @@ Icons are clipped to a circle, rendered with nice borders, and scaled for good r
 When you first spin up the app, here’s a quick checklist to make sure everything feels right:
 
 - [ ] App starts with no exceptions in the terminal.
-- [ ] **Help → About** shows version **4.2.1** and lists the bug‑fix highlights.
+- [ ] **Help → About** shows version **4.3.0**.
 - [ ] Debates run end‑to‑end without JSON / voting errors (even if your critiques use contractions).
 - [ ] If web search is configured:
   - [ ] Asking “What’s today’s date?” or a similar query yields the correct date.
   - [ ] Web‑based answers cite sources like `[1]`, `[2]`.
-- [ ] Icons appear properly on your platform (including `.PNG` files on Linux).  
+- [ ] Icons appear properly on your platform (including `.PNG` files on Linux).
 - [ ] If GPU monitoring is installed:
   - [ ] “🎮 GPU Monitor” panel appears in the left sidebar.
   - [ ] GPU stats update while models generate.
@@ -164,7 +190,10 @@ If all of that looks good, you’re in great shape. 💚
 
 ## 📁 What’s in This Folder?
 
-- `kraken_council_v4_2_1.py` – Main application (all current features + fixes + GPU support).
+- `kraken_council_v4_3_0.py` – Current application.
+- `kraken_council_v4_2_1.py` – Preserved previous release.
+- `kouncil_core.py` – Offline-testable ballot validation and winner selection.
+- `tests/` – Tests that do not require local models.
 - `README.md` – This file, your high‑level overview and quick start.
 - `CHANGELOG.md` – Full version history and technical changes.
 - `GPU_SETUP_QUICK.md` – Two‑step GPU setup and color legend.
@@ -172,6 +201,23 @@ If all of that looks good, you’re in great shape. 💚
 - `DOWNLOAD_HERE.md` – A short, friendly “start here” card you can share or embed.
 
 (Everything else from earlier dev sessions — summaries, logs, meta‑notes — is optional. You can keep them separately in a `/docs` folder or toss them if you like.)
+
+### Offline verification
+
+These checks do not contact Ollama or LM Studio:
+
+```bash
+python -m py_compile kraken_council_v4_3_0.py kouncil_core.py
+python -m unittest discover -s tests -v
+```
+
+### Keyboard shortcuts
+
+- `Enter` – run the council from the question box
+- `Shift+Enter` – insert a new line
+- `Esc` – cancel the active run
+- `F5` – rediscover local models
+- `Ctrl+,` – open settings
 
 ---
 
