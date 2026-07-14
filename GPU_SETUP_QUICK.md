@@ -9,12 +9,12 @@ pip install nvidia-ml-py
 
 **Alternative:**
 ```bash
-pip install nvidia-ml-py3
+python -m pip install -r requirements-optional.txt
 ```
 
 ### Step 2: Run App
 ```bash
-python3 kraken_council_v4_2_1.py
+python kraken_council_v4_3_0.py
 ```
 
 **That's it!** 🎉
@@ -72,7 +72,7 @@ pip install nvidia-ml-py
 ### Still not working?
 
 ```bash
-pip install nvidia-ml-py3
+python -m pip install -r requirements-optional.txt
 ```
 
 ### Linux permission error?

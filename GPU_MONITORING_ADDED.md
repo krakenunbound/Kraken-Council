@@ -1,4 +1,4 @@
-# 🎮 GPU Monitoring Added - Kraken Kouncil v4.2.1
+# 🎮 GPU Monitoring - Kraken Kouncil v4.3.0
 
 ## 🎉 GPU Monitor is Back!
 
@@ -8,7 +8,7 @@ Your GPU monitoring feature has been restored! Real-time GPU stats with beautifu
 
 ## 📥 Download
 
-[**kraken_council_v4_2_1.py**](computer:///mnt/user-data/outputs/kraken_council_v4_2_1.py) - Now with GPU monitoring!
+**kraken_council_v4_3_0.py** includes optional NVIDIA GPU monitoring.
 
 ---
 
@@ -51,13 +51,13 @@ pip install nvidia-ml-py
 
 **Or:**
 ```bash
-pip install nvidia-ml-py3
+python -m pip install -r requirements-optional.txt
 ```
 
 ### 2. Run the App
 
 ```bash
-python3 kraken_council_v4_2_1.py
+python kraken_council_v4_3_0.py
 ```
 
 **That's it!** GPU monitoring will appear automatically if you have an NVIDIA GPU.
@@ -221,7 +221,7 @@ pip install nvidia-ml-py
 
 **Try alternative package:**
 ```bash
-pip install nvidia-ml-py3
+python -m pip install -r requirements-optional.txt
 ```
 
 ### Permission errors (Linux):
@@ -289,14 +289,14 @@ LEFT SIDEBAR:
 
 ### If you already have nvidia-ml-py:
 ```bash
-python3 kraken_council_v4_2_1.py
+python kraken_council_v4_3_0.py
 ```
 Done! GPU monitor will appear automatically.
 
 ### If you need to install it:
 ```bash
 pip install nvidia-ml-py
-python3 kraken_council_v4_2_1.py
+python kraken_council_v4_3_0.py
 ```
 
 ### To verify it's working:

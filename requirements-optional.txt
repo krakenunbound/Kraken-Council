@@ -1,0 +1,2 @@
+# Optional NVIDIA GPU telemetry support
+nvidia-ml-py>=12,<14
